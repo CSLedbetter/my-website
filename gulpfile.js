@@ -13,10 +13,19 @@ gulp.task('copy:html', () =>
   .pipe(gulp.dest('dist'))
 );
 
+gulp.task('copy:images', () =>
+  gulp
+  .src('client/app/images/*')
+  .pipe(gulp.dest('dist/images'))
+);
+
 gulp.task('build:js', () =>
   gulp
   .src([
+    'node_modules/jquery/dist/jquery.js',
+    'node_modules/bootstrap/dist/js/bootstrap.js',
     'node_modules/angular/angular.js',
+    'node_modules/angular-ui-router/release/angular-ui-router.js',
     'client/**/*.module.js',
     'client/**/*.js'
   ])
